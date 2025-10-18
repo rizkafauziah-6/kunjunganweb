@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pendaftaran - Unit Pers & Komunikasi</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding-top: 76px;
+    }
+    .navbar {
+      background-color: #05312a !important;
+    }
+    .navbar-brand img {
+      width: 45px;
+      height: auto;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+    footer {
+      background-color: #05312a;
+      color: white;
+      padding: 2rem 0;
+      margin-top: 3rem;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      margin-top: 1rem;
+      padding-top: 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="logo perskom.png" alt="Logo"> Unit Pers & Komunikasi
+      </a>
+    </div>
+  </nav>
+
+  <!-- Form Pendaftaran -->
+  <section class="py-5">
+    <div class="container">
+      <h1 class="mb-4 text-center">Daftar Kunjungan</h1>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow">
+            <div class="card-header bg-success text-white">
+              <h4 class="mb-0">Isi Data Diri</h4>
+            </div>
+            <div class="card-body">
+              <form id="registrationForm">
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama Lengkap<span style="color:red;">*</label>
+                  <input type="text" class="form-control" id="nama" required>
+                </div>
+                <div class="mb-3">
+                  <label for="nim" class="form-label">NIM<span style="color:red;">*</label>
+                  <input type="text" class="form-control" id="nim" required>
+                </div>
+                <div class="mb-3">
+                  <label for="jurusan" class="form-label">Jurusan<span style="color:red;">*</label>
+                  <input type="text" class="form-control" id="jurusan" required>
+                </div>
+                <div class="mb-3">
+                  <label for="nomortelpon" class="form-label">Nomor WhatsApp <span style="color:red;">*</span></label>
+                  <input type="tel" class="form-control" id="nomortelpon" placeholder="08xxxxxx" required>
+                </div>
+                <div class="mb-3">
+                  <label for="instagram" class="form-label">Username Instagram<span style="color:red;">*</label>
+                  <input type="text" class="form-control" id="instagram" placeholder="@username" required>
+                </div>
+                <button type="submit" class="btn btn-success">Kirim </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6 footer-section">
+                    <div class="footer-logo">Unit Pers & Komunikasi</div>
+                    <p class="footer-description">Membentuk Jurnalis Profesional dan Berintegritas untuk Masa Depan. Kami berkomitmen untuk memberikan pendidikan jurnalistik terbaik dengan standar tinggi.</p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/perspramukauinsgd?igsh=MXVjZzlvbmZ6MGFmOQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/@perskomtv7454"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+              
+              
+                
+                <div class="col-lg-3 col-md-6 footer-section">
+                    <h5 class="footer-heading">Kontak Kami</h5>
+                    <div class="footer-contact">
+                        <p><i class="fas fa-map-marker-alt"></i> Gedung SC Lantai 4, UIN Sunan Gunung Djati  Bandung</p>
+                        <p><i class="fas fa-envelope"></i> @perspramukauinbandung</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; Unit Pers & Komunikasi. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> for Future Journalists</p>
+            </div>
+        </div>
+    </footer>
+
+  <!-- Script untuk kirim data ke Google Spreadsheet -->
+<script>
+document.getElementById('registrationForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+
+  const data = {
+    nama: document.getElementById('nama').value,
+    nim: document.getElementById('nim').value,
+    jurusan: document.getElementById('jurusan').value,
+    nomor: document.getElementById('nomortelpon').value,
+    instagram: document.getElementById('instagram').value
+  };
+
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyLqm4HsFlFopch9hY_hUBaCXVNq2YpO5oI5R1YculMz1ypyOb02JQ7nWXQ0HocVxtP/exec'; // Spreadsheet A
+
+  try {
+    const res = await fetch(scriptURL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    });
+
+    const result = await res.json();
+    if (result.status === 'success') {
+      alert('✅ Data kunjungan berhasil dikirim!');
+      this.reset();
+    } else {
+      alert('❌ Gagal mengirim data kunjungan: ' + result.message);
+    }
+  } catch (err) {
+    alert('❌ Terjadi error jaringan saat mengirim data kunjungan.');
+    console.error(err);
+  }
+});
+</script>
+
+</body>
+</html>
