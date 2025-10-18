@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pendaftaran - Unit Pers & Komunikasi</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Bootstrap & Font Awesome -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       padding-top: 76px;
       background-color: #f8f9fa;
     }
+
+    /* Navbar */
     .navbar {
       background-color: #05312a !important;
     }
@@ -21,6 +26,16 @@
       margin-right: 10px;
       border-radius: 5px;
     }
+
+    /* Form */
+    .form-container {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Footer */
     footer {
       background-color: #05312a;
       color: white;
@@ -34,11 +49,13 @@
       font-size: 0.9rem;
       text-align: center;
     }
-    form {
-      background-color: #ffffff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    .social-links a {
+      color: white;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    .social-links a:hover {
+      color: #1abc9c;
     }
   </style>
 </head>
@@ -48,111 +65,120 @@
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img src="logo perskom.png" alt="Logo"> Unit Pers & Komunikasi
+        <img src="logo perskom.png" alt="Logo" />
+        Unit Pers & Komunikasi
       </a>
     </div>
   </nav>
-  <!-- Intro -->
+
+  <!-- Intro Section -->
   <div class="container my-5">
     <div class="p-4 mb-4 bg-white rounded shadow-sm">
       <h3 class="fw-bold text-center mb-3">Salam Pers!</h3>
       <p>
-        Halo calon siswa <strong>Journalist Academy 7.0</strong><br>
-        Selamat datang di formulir Pendaftaran Calon Siswa Journalist Academy 6.0 Unit Pers dan Komunikasi Pramuka UIN Bandung.
+        Halo calon siswa <strong>Journalist Academy 7.0</strong><br />
+        Selamat datang di formulir Pendaftaran Calon Siswa Journalist Academy
+        6.0 Unit Pers dan Komunikasi Pramuka UIN Bandung.
       </p>
       <p>
-        Sebelum mendaftar silakan lakukan pembayaran sebesar <strong>Rp30.000</strong> melalui:
+        Sebelum mendaftar, silakan lakukan pembayaran sebesar
+        <strong>Rp30.000</strong> melalui:
       </p>
       <ul>
-        <li>Seabank : <code>9013-0837-8655 a/n Rachmatia Rosidin</code></li>
-        <li>Dana : <code>0857-1428-1785  a/n Rachmatia Rosidin</code></li>
+        <li>
+          Seabank : <code>9013-0837-8655 a/n Rachmatia Rosidin</code>
+        </li>
+        <li>
+          Dana : <code>0857-1428-1785 a/n Rachmatia Rosidin</code>
+        </li>
       </ul>
       <p>
-        Lakukan konfirmasi pembayaran (screenshot bukti pembayaran) pada nomor : <code>+62 857-1428-1785 Tia</code><br>
-        Untuk informasi lebih lanjut, silakan follow Instagram 
-        <a href="https://www.instagram.com/perspramukauinsgd" target="_blank">@perspramukauinsgd</a>.
+        Lakukan konfirmasi pembayaran (screenshot bukti pembayaran) ke nomor:
+        <code>+62 857-1428-1785 (Tia)</code><br />
+        Untuk informasi lebih lanjut, silakan follow Instagram
+        <a
+          href="https://www.instagram.com/perspramukauinsgd"
+          target="_blank"
+          >@perspramukauinsgd</a
+        >.
       </p>
     </div>
+  </div>
 
-
-  <!-- Form -->
+  <!-- Form Section -->
   <div class="container my-5">
-    <h2 class="text-center mb-4 fw-bold">Formulir Pendaftaran Unit Pers & Komunikasi</h2>
-    <form><form id="pendaftaranForm">
-  </form>
+    <h2 class="text-center mb-4 fw-bold">
+      Formulir Pendaftaran Unit Pers & Komunikasi
+    </h2>
+
+    <form id="pendaftaranForm" class="form-container">
 
       <!-- Email -->
       <div class="mb-3">
         <label class="form-label">Email <span style="color:red;">*</span></label>
-        <input type="email" class="form-control" placeholder="Email Anda" required>
+        <input type="email" class="form-control" name="email" placeholder="Email Anda" required />
       </div>
 
-      <!-- Upload Bukti Share -->
+      <!-- Bukti Share -->
       <div class="mb-3">
         <label class="form-label">Link Screenshoot Bukti Share Postingan Oprec <span style="color:red;">*</span></label>
-        <input type="url" class="form-control" placeholder="Masukkan link Google Drive / lainnya" required>
+        <input type="url" class="form-control" name="linkBuktiShare" placeholder="Masukkan link Google Drive / lainnya" required />
       </div>
 
-      <!-- Link Bukti Pembayaran -->
+      <!-- Bukti Pembayaran -->
       <div class="mb-3">
         <label class="form-label">Link Bukti Pembayaran <span style="color:red;">*</span></label>
-        <input type="url" class="form-control" placeholder="Masukkan link Google Drive / lainnya" required>
+        <input type="url" class="form-control" name="linkBuktiBayar" placeholder="Masukkan link Google Drive / lainnya" required />
       </div>
 
-      <!-- Nama Lengkap -->
+      <!-- Identitas Diri -->
       <div class="mb-3">
         <label class="form-label">Nama Lengkap <span style="color:red;">*</span></label>
-        <input type="text" class="form-control" placeholder="Contoh: Raffi Ahmad" required>
+        <input type="text" class="form-control" name="namaLengkap" placeholder="Contoh: Raffi Ahmad" required />
       </div>
 
-      <!-- Jenis Kelamin -->
       <div class="mb-3">
-        <label class="form-label">Jenis Kelamin <span style="color:red;">*</span></label><br>
+        <label class="form-label">Jenis Kelamin <span style="color:red;">*</span></label><br />
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" value="Laki-laki" required>
+          <input class="form-check-input" type="radio" name="gender" value="Laki-laki" required />
           <label class="form-check-label">Laki-laki</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="gender" value="Perempuan" required>
+          <input class="form-check-input" type="radio" name="gender" value="Perempuan" required />
           <label class="form-check-label">Perempuan</label>
         </div>
       </div>
 
-      <!-- Tempat & Tanggal Lahir -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">Tempat Lahir <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="tempatLahir" required />
         </div>
         <div class="col-md-6 mb-3">
           <label class="form-label">Tanggal Lahir <span style="color:red;">*</span></label>
-          <input type="date" class="form-control" required>
+          <input type="date" class="form-control" name="tanggalLahir" required />
         </div>
       </div>
 
-      <!-- Nomor WA -->
       <div class="mb-3">
         <label class="form-label">Nomor WhatsApp <span style="color:red;">*</span></label>
-        <input type="tel" class="form-control" placeholder="08xxxxxx" required>
+        <input type="tel" class="form-control" name="nomorWA" placeholder="08xxxxxx" required />
       </div>
 
-      <!-- Instagram -->
       <div class="mb-3">
         <label class="form-label">Akun Instagram <span style="color:red;">*</span></label>
-        <input type="url" class="form-control" placeholder="https://instagram.com/username" required>
+        <input type="url" class="form-control" name="akunInstagram" placeholder="https://instagram.com/username" required />
         <div class="form-text">Gunakan akun utama dan jangan dikunci</div>
       </div>
 
-      <!-- Alamat Rumah -->
       <div class="mb-3">
         <label class="form-label">Alamat Rumah <span style="color:red;">*</span></label>
-        <textarea class="form-control" rows="2" required></textarea>
+        <textarea class="form-control" rows="2" name="alamatRumah" required></textarea>
       </div>
 
-      <!-- Foto -->
       <div class="mb-3">
         <label class="form-label">Foto <span style="color:red;">*</span></label>
-        <input type="url" class="form-control" placeholder="Masukkan link Google Drive / lainnya" required>
+        <input type="url" class="form-control" name="linkFoto" placeholder="Masukkan link Google Drive / lainnya" required />
         <div class="form-text">Unggah pas foto formal. Maks 10 MB.</div>
       </div>
 
@@ -160,42 +186,41 @@
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">Nama orang tua/wali <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="namaOrangTua" required />
         </div>
         <div class="col-md-6 mb-3">
           <label class="form-label">Pekerjaan orang tua/wali <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="pekerjaanOrangTua" required />
         </div>
       </div>
 
-      <!-- Asal Kampus & Fakultas -->
+      <!-- Data Kampus -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">Asal Kampus <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" placeholder="Contoh: UIN SGD BDG" required>
+          <input type="text" class="form-control" name="asalKampus" placeholder="Contoh: UIN SGD BDG" required />
         </div>
         <div class="col-md-6 mb-3">
           <label class="form-label">Fakultas <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="fakultas" required />
         </div>
       </div>
 
-      <!-- Jurusan & Semester -->
       <div class="row">
         <div class="col-md-6 mb-3">
           <label class="form-label">Jurusan <span style="color:red;">*</span></label>
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="jurusan" required />
         </div>
         <div class="col-md-6 mb-3">
           <label class="form-label">Semester <span style="color:red;">*</span></label>
-          <input type="number" class="form-control" placeholder="Contoh: 2" required>
+          <input type="number" class="form-control" name="semester" placeholder="Contoh: 2" required />
         </div>
       </div>
 
-      <!-- Golongan Pramuka -->
+      <!-- Informasi Pramuka -->
       <div class="mb-3">
         <label class="form-label">Golongan Pramuka <span style="color:red;">*</span></label>
-        <select class="form-select" required>
+        <select class="form-select" name="golonganPramuka" required>
           <option value="">Pilih...</option>
           <option>Penegak bantara</option>
           <option>Penegak laksana</option>
@@ -208,61 +233,38 @@
       <!-- Riwayat -->
       <div class="mb-3">
         <label class="form-label">Riwayat kegiatan / Pelatihan <span style="color:red;">*</span></label>
-        <textarea class="form-control" rows="2" placeholder="Tuliskan menurun dengan angka" required></textarea>
+        <textarea class="form-control" rows="2" name="riwayatKegiatan" placeholder="Tuliskan menurun dengan angka" required></textarea>
       </div>
 
       <div class="mb-3">
         <label class="form-label">Riwayat Organisasi <span style="color:red;">*</span></label>
-        <textarea class="form-control" rows="2" placeholder="Tuliskan menurun dengan angka" required></textarea>
+        <textarea class="form-control" rows="2" name="riwayatOrganisasi" placeholder="Tuliskan menurun dengan angka" required></textarea>
       </div>
 
-      <!-- Keunggulan -->
       <div class="mb-3">
-        <label class="form-label">Keunggulan Individu / Keahlian / Bakat / Hobi <span style="color:red;">*</span></label>
-        <textarea class="form-control" rows="3" placeholder="1. MC&#10;2. Editing Video&#10;3. Menari" required></textarea>
+        <label class="form-label">Keunggulan / Keahlian / Bakat / Hobi <span style="color:red;">*</span></label>
+        <textarea class="form-control" rows="3" name="keunggulan" placeholder="1. MC&#10;2. Editing Video&#10;3. Menari" required></textarea>
       </div>
 
-      <!-- Motivasi -->
       <div class="mb-3">
         <label class="form-label">Motivasi daftar Unit Pers dan Komunikasi <span style="color:red;">*</span></label>
-        <textarea class="form-control" rows="3" required></textarea>
+        <textarea class="form-control" rows="3" name="motivasi" required></textarea>
       </div>
 
-      <!-- Kelas yang diminati -->
+      <!-- Kelas Diminati -->
       <div class="mb-3">
         <label class="form-label">Kelas yang diminati <span style="color:red;">*</span></label>
         <div class="row">
           <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Fotografi">
-              <label class="form-check-label">Fotografi</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Videografi">
-              <label class="form-check-label">Videografi</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Editing Video">
-              <label class="form-check-label">Editing Video</label>
-            </div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Fotografi" name="kelasDiminati" /> <label class="form-check-label">Fotografi</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Videografi" name="kelasDiminati" /> <label class="form-check-label">Videografi</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Editing Video" name="kelasDiminati" /> <label class="form-check-label">Editing Video</label></div>
           </div>
           <div class="col-md-6">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Desain Grafis">
-              <label class="form-check-label">Desain Grafis</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Kepenulisan">
-              <label class="form-check-label">Kepenulisan</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Livestreaming">
-              <label class="form-check-label">Livestreaming</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="Broadcasting">
-              <label class="form-check-label">Broadcasting</label>
-            </div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Desain Grafis" name="kelasDiminati" /> <label class="form-check-label">Desain Grafis</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Kepenulisan" name="kelasDiminati" /> <label class="form-check-label">Kepenulisan</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Livestreaming" name="kelasDiminati" /> <label class="form-check-label">Livestreaming</label></div>
+            <div class="form-check"><input class="form-check-input" type="checkbox" value="Broadcasting" name="kelasDiminati" /> <label class="form-check-label">Broadcasting</label></div>
           </div>
         </div>
       </div>
@@ -271,83 +273,84 @@
       <div class="text-center mt-4">
         <button type="submit" class="btn btn-success px-4 py-2">Kirim Formulir</button>
       </div>
-
     </form>
   </div>
 
   <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 footer-section">
-                    <div class="footer-logo">Unit Pers & Komunikasi</div>
-                    <p class="footer-description">Membentuk Jurnalis Profesional dan Berintegritas untuk Masa Depan. Kami berkomitmen untuk memberikan pendidikan jurnalistik terbaik dengan standar tinggi.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/perspramukauinsgd?igsh=MXVjZzlvbmZ6MGFmOQ=="><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@perskomtv7454"><i class="fab fa-youtube"></i></a>
-                    </div>
-                </div>
-                
-              
-              
-                
-                <div class="col-lg-3 col-md-6 footer-section">
-                    <h5 class="footer-heading">Kontak Kami</h5>
-                    <div class="footer-contact">
-                        <p><i class="fas fa-map-marker-alt"></i> Gedung SC Lantai 4, UIN Sunan Gunung Djati  Bandung</p>
-                        <p><i class="fas fa-envelope"></i> @perspramukauinbandung</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p>&copy; Unit Pers & Komunikasi. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> for Future Journalists</p>
-            </div>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 footer-section">
+          <div class="footer-logo fw-bold fs-5 mb-2">Unit Pers & Komunikasi</div>
+          <p class="footer-description">
+            Membentuk Jurnalis Profesional dan Berintegritas untuk Masa Depan.
+            Kami berkomitmen memberikan pendidikan jurnalistik terbaik dengan standar tinggi.
+          </p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/perspramukauinsgd" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@perskomtv7454" target="_blank"><i class="fab fa-youtube"></i></a>
+          </div>
         </div>
-    </footer>
 
-   <script>
-const scriptURLPendaftaran = 'https://script.google.com/macros/s/AKfycbyc0nkJ8lfyBdVCKKpfIesCN5chbP9N48SnI3kN-ndjqZzvbtXbv8OOv4az-mL3M7ZB_A/exec'; // Spreadsheet B
+        <div class="col-lg-3 col-md-6 footer-section">
+          <h5 class="footer-heading mb-3">Kontak Kami</h5>
+          <p><i class="fas fa-map-marker-alt"></i> Gedung SC Lantai 4, UIN Sunan Gunung Djati Bandung</p>
+          <p><i class="fas fa-envelope"></i> @perspramukauinbandung</p>
+        </div>
+      </div>
 
-document.getElementById('pendaftaranForm').addEventListener('submit', async function(e){
-  e.preventDefault();
+      <div class="footer-bottom">
+        <p>
+          &copy; Unit Pers & Komunikasi. All rights reserved. | Designed with
+          <i class="fas fa-heart" style="color: #e74c3c;"></i> for Future Journalists
+        </p>
+      </div>
+    </div>
+  </footer>
 
-  const form = e.target;
-  const formData = new FormData(form);
-  const data = {};
+  <!-- Script -->
+  <script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycbwT2pmt0jJanC4HiQoOgQ8IaAYihtKL_J19W0o7OrBGKyUbCwEW5x5riY-6dZmZslmzPA/exec";
+  const form = document.getElementById("pendaftaranForm");
 
-  formData.forEach((value, key) => {
-    if (key === 'kelasDiminati') {
-      if (!data[key]) data[key] = [];
-      data[key].push(value);
-    } else {
-      data[key] = value;
-    }
-  });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault(); // biar nggak reload halaman
 
-  if (data.kelasDiminati) {
-    data.kelasDiminati = data.kelasDiminati.join(', ');
-  }
+    // Ubah tombol biar user tahu sedang loading
+    const btn = form.querySelector("button");
+    btn.disabled = true;
+    btn.textContent = "Mengirim...";
 
-  try {
-    const res = await fetch(scriptURLPendaftaran, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
+    fetch(scriptURL, {
+      method: "POST",
+      body: new FormData(form)
+    })
+    .then(async (response) => {
+      let result;
+      try {
+        result = await response.json(); // coba baca JSON
+      } catch {
+        const text = await response.text();
+        throw new Error(text); // kalau bukan JSON, lempar error
+      }
+
+      if (result.status === "success") {
+        alert("✅ Data berhasil dikirim!");
+        form.reset(); // kosongkan form
+      } else {
+        alert("❌ Gagal mengirim data: " + result.message);
+      }
+    })
+    .catch((error) => {
+      alert("⚠️ Terjadi kesalahan: " + error.message);
+      console.error(error);
+    })
+    .finally(() => {
+      // Balikin tombol ke semula
+      btn.disabled = false;
+      btn.textContent = "Kirim";
     });
-
-    const result = await res.json();
-    if (result.result === 'success') {
-      alert('✅ Formulir pendaftaran berhasil dikirim!');
-      form.reset();
-    } else {
-      alert('❌ Gagal mengirim data pendaftaran: ' + result.message);
-    }
-  } catch (err) {
-    alert('❌ Terjadi error jaringan saat mengirim data pendaftaran.');
-    console.error(err);
-  }
-});
+  });
 </script>
 
 

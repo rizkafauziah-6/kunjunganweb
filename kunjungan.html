@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pendaftaran - Unit Pers & Komunikasi</title>
+  <title>Daftar Kunjungan - Unit Pers & Komunikasi</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -122,35 +122,35 @@
   <!-- Script untuk kirim data ke Google Spreadsheet -->
 <script>
 document.getElementById('registrationForm').addEventListener('submit', async function(e) {
-  e.preventDefault();
+  e.preventDefault();
 
-  const data = {
-    nama: document.getElementById('nama').value,
-    nim: document.getElementById('nim').value,
-    jurusan: document.getElementById('jurusan').value,
-    nomor: document.getElementById('nomortelpon').value,
-    instagram: document.getElementById('instagram').value
-  };
+  // 1. Buat objek FormData
+  const formData = new FormData();
+  formData.append('nama', document.getElementById('nama').value);
+  formData.append('nim', document.getElementById('nim').value);
+  formData.append('jurusan', document.getElementById('jurusan').value);
+  formData.append('nomor', document.getElementById('nomortelpon').value);
+  formData.append('instagram', document.getElementById('instagram').value);
 
-  const scriptURL = 'https://script.google.com/macros/s/AKfycbyLqm4HsFlFopch9hY_hUBaCXVNq2YpO5oI5R1YculMz1ypyOb02JQ7nWXQ0HocVxtP/exec'; // Spreadsheet A
+   const scriptURL = 'https://script.google.com/macros/s/AKfycbzkzgOLzu62XEnk24rkGhv-rk7iaramV5EKPzWffUeEACKmShct1oUdg5D0aBHgBLZw/exec'; 
 
-  try {
-    const res = await fetch(scriptURL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
+   try {
+     const res = await fetch(scriptURL, {
+        method: 'POST',
+      // 2. HAPUS 'headers'
+        body: formData // 3. Kirim formData, bukan JSON.stringify(data)
+     });
 
-    const result = await res.json();
-    if (result.status === 'success') {
-      alert('✅ Data kunjungan berhasil dikirim!');
-      this.reset();
-    } else {
-      alert('❌ Gagal mengirim data kunjungan: ' + result.message);
-    }
-  } catch (err) {
-    alert('❌ Terjadi error jaringan saat mengirim data kunjungan.');
-    console.error(err);
+     const result = await res.json();
+     if (result.status === 'success') {
+        alert('✅ Data kunjungan berhasil dikirim!');
+        this.reset();
+     } else {
+        alert('❌ Gagal mengirim data kunjungan: ' + result.message);
+     }
+   } catch (err) {
+     alert('❌ Terjadi error jaringan saat mengirim data kunjungan.');
+     console.error(err);
   }
 });
 </script>
